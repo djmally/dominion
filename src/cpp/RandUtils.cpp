@@ -8,9 +8,10 @@
 #include <vector>
 #include "RandUtils.h"
 
-std::vector<int> rand_utils::GenPseudoRandList(size_t size, int max) {
+std::vector<int> rand_utils::GenPseudoRandList(size_t size, int max, int seed) {
     std::vector<int> pseudoRands;
     // Ha ha, nondeterminism!
+    srand(seed);
     for(int i = 0; i < max; i++) {
         int randIdx = rand() % size;
         bool notUniq = false;
@@ -29,4 +30,3 @@ std::vector<int> rand_utils::GenPseudoRandList(size_t size, int max) {
     }
     return pseudoRands;
 }
-
